@@ -1,0 +1,31 @@
+.panel-login {
+  margin-top: 5%!important;
+  text-align: center;
+  .form-group {
+   text-align: left;
+  }
+  #checkbox {
+    margin-left: 0;
+  }
+  .btn-primary {
+    width: 30%!important;
+    display: inline-block;
+  }
+  .checkbox-primary {
+    float: inherit!important;
+  }
+  .panel-footer {
+    .btn-link {
+      padding-left: 0px;
+    }
+    a {
+      color: $link-color;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  }
+  .btn-primary {
+    background-color: $main-button-color;
+  }
+}

@@ -1,0 +1,219 @@
+//tabs
+div.tabs {
+    overflow: hidden;
+    background-color: #ccc;
+    display: inline;
+}
+
+div.tabs button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 28px;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+div.tabs button:hover {
+    background-color: #f5f8fa;
+}
+
+div.tabs button.active {
+    background-color: white;
+}
+
+.tabContent {
+    display: none;
+    padding: 6px 30px 100px;
+    margin-top: 52px;
+    background-color: white;
+}
+
+.inputs {
+    width: 50%;
+}
+
+//select2 och noUISlider
+.handleValue {
+    background: 0;
+    border: 0;
+    overflow: visible;
+    outline: 0;
+    height: auto;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.sliders-container {
+	display: inline-block;
+	width: 70%;
+}
+
+.noUi-connect {
+    background: #ff4877;
+}
+
+input#upper-value-rent {
+	float: right;
+	text-align: right;
+}
+
+input#upper-value-size {
+	float: right;
+	text-align: right;
+}
+
+input#upper-value-rooms {
+    float: right;
+    text-align: right;
+}
+
+.select-container {
+	width: 50%;
+}
+#searchProfile {
+  width: 65%;
+  display: inline-block;
+  .btn-info {
+    padding: 10px 20px;
+    transition: 0.3s;
+    font-size: 18px;
+  }
+}
+.settings {
+  margin-bottom: 15px;
+  .btn-info {
+    padding: 10px 20px;
+    transition: 0.3s;
+    font-size: 18px;
+  }
+}
+
+#notification-wrapper {
+  width: 35%;
+  display: inline-block;
+  float: right;
+  margin-bottom: 15px;
+}
+#notification-container {
+  width: 100%;
+  display: inline-block;
+  h3 {
+    padding-left: 40px;
+  }
+  .noti {
+    background-color: white!important;
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.05);
+    border:1px solid #E4E4E4;
+    margin-bottom: 5px;
+    list-style-type: none;
+    padding: 4px;
+  }
+  .noti:hover {
+    background-color: #f5f5f5!important;
+    cursor: pointer!important;
+  }
+  .noti a {
+    color: black!important;
+    height: 80px!important;
+  }
+  .see-all-noti {
+    text-align: center!important;
+  }
+  .noti {
+    text-align: center;
+    a {
+      padding: 0;
+      display: inherit;
+    }
+    img {
+      max-width: 35%;
+      height: 80px;
+      object-fit: cover;
+      vertical-align: inherit;
+    }
+    p {
+      display: inline-block;
+      width: 64%;
+      line-height: 40px;
+      vertical-align: top;
+      text-overflow: ellipsis;
+      margin: 0;
+      /* Required for text-overflow to do anything */
+      white-space: nowrap;
+      overflow: hidden;
+    }
+  }
+}
+@media screen and (max-width: 1070px) {
+  #searchProfile {
+    width: 50%;
+  }
+  #notification-wrapper {
+    width: 50%;
+  }
+  .sliders-container {
+    width: 100%;
+    padding-left: 10px;
+  }
+
+  .select-container {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 760px) {
+  .settings {
+    padding: 30px!important;
+    h3 {
+      width:100%;
+    }
+  }
+  .tabContent {
+    padding: 0;
+  }
+  #searchProfile {
+    padding: 30px;
+    width: 100%;
+  }
+  #notification-wrapper {
+    padding: 0 30px;
+    width: 100%;
+    background-color: white;
+  }
+  #notification-container {
+    width: 100%;
+    h3, .notiNav {
+      padding:0;
+    }
+    img {
+      float: left;
+    }
+  }
+}
+
+@media screen and (max-width: 485px) {
+    input.handleValue {
+    	width: 100px;
+    }
+
+    .inputs {
+        width: 100%;
+    }
+  .settings {
+    padding: 0!important;
+    h3 {
+      display: inline-block;
+    }
+  }
+  #searchProfile {
+    padding: 0;
+    width: 100%;
+  }
+  #notification-wrapper {
+    padding: 0;
+    width: 100%;
+    background-color: white;
+  }
+}

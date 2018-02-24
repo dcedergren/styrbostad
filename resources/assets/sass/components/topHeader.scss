@@ -1,0 +1,16 @@
+#header
+{
+	text-align:center;
+	img
+	{
+		max-width:600px;
+	}
+}
+
+@media screen and (max-width:$break-small) {
+	#header {
+		img {
+			max-width:100%!important;
+		}
+	}
+}

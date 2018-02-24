@@ -1,0 +1,108 @@
+.seeMoreContainer {
+  i {
+    position: inherit!important;
+  }
+  .see-more-description {
+    .source {
+      text-align: right;
+      .btn {
+        border-color:#11A0D9;
+        background-color:#11A0D9;
+      }
+    }
+  }
+  .see-more-content {
+    margin-top: 10px;
+    padding: 0!important;
+    position: relative;
+    border-top: 1px solid #E4E4E4;
+  }
+  .see-more-btns {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    padding-top: 10px;
+    .btn {
+      width: 90px;
+      border-color:#11A0D9;
+      background-color:#11A0D9;
+    }
+  }
+  .see-more-lgh-info {
+    width: 50%;
+    display: inline-block;
+    table {
+      padding-right: 10px;
+      width: 100%;
+      border-spacing: 4px;
+      border-collapse: separate;
+      border-right: 1px solid #E4E4E4;
+      td {
+        text-align: right;
+      }
+    }
+  }
+  h5
+  {
+    margin: 0;
+    padding: 10px 0 10px 0;
+    font-weight:900;
+    width:100%;
+    text-align: center;
+  }
+  h5.see-more-info-title {
+    border-bottom: 1px solid #E4E4E4;
+    border-right: 1px solid #E4E4E4;
+  }
+  .share-container
+  {
+    width: 50%;
+    display: inline-block;
+    float: right;
+    text-align: center;
+    .share-btn-container {
+      padding-left: 10px;
+    }
+    .sms-btn
+    {
+      background-color:#ffbd00;
+      border-radius:8px;
+      border:1px solid #dadada;
+      color:white;
+      display:none;
+    }
+    .share-msg
+    {
+      display: none;
+    }
+    .facebook-btn
+    {
+      background-color:#2b6fe1;
+    }
+    .email-btn
+    {
+      background-color:#7d7d7d;
+    }
+    .share-btn
+    {
+      border-radius:8px;
+      border:1px solid #dadada;
+
+      a
+      {
+        line-height: 40px;
+        width:100%;
+        text-align: center;
+        color:white;
+      }
+      &:hover
+      {
+        color:#dadada;
+      }
+      img
+      {
+        max-width:30px;
+      }
+    }
+  }
+}

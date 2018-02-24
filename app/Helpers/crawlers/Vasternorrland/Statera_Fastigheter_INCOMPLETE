@@ -1,0 +1,80 @@
+function svedin_crawl(callback) {
+    var Crawler = require("crawler");
+    var cheerio = require('cheerio');
+    var url = require('url');
+    var array = [];
+    var errors = [];
+    var c = new Crawler({
+        retries: 1,
+        retryTimeout: 2500,
+        rateLimit: 2500,
+        userAgent: "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.71 Safari/537.36",
+    });
+
+    c.queue([{
+        uri: 'http://staterafastigheter.se/ledigt/',
+        jQuery: 'cheerio',
+        callback: function(error, res, done) {
+            if(error){
+                errors.push('Dios starturl: ' + error);
+            }
+            var $ = res.$;
+            $('#object-list > ul > li > a').each(function(index, a) {
+                try {
+                    var toQueueUrl = url.resolve(res.request.uri.href, $(a).attr('href'));
+                }
+                catch(error) {
+                    errors.push('Dios url resolve: ' + error);
+                    return false;
+                }
+                c.queue([{
+                    uri: toQueueUrl,
+                    jQuery: 'cheerio',
+                    callback : function (error, res, done) {
+                        if(error){
+                            errors.push('Dios loopUrls: ' + error);
+                        }
+                        else {
+                            try {
+                                var  $= res.$;
+                                var object = {};
+                                var images = [];
+                                object.title = $('#headInfo > h2').text();
+                                object.full_description = $('#headInfo > p').text();
+                                object.price = $('#leftContentVitec > table > tr:nth-child(8) > td:nth-child(2) > strong').text();
+                                object.square_feet = $('#leftContentVitec > table > tr:nth-child(4) > td:nth-child(2)').text();
+                                object.rooms = $('#leftContentVitec > table > tbody > tr:nth-child(5) > td:nth-child(2)').text();
+                                object.city = $('#leftContentVitec > table > tr:nth-child(1) > td:nth-child(2)').text();
+                                object.source = 'Diös';
+                                object.url = res.request.uri.href;
+                                object.adress = $('#leftContentVitec > table > tr:nth-child(3) > td:nth-child(2)').text();
+                                images.push('');
+                                object.images = images;
+                                array.push(object);
+                                console.log(object);
+                            }
+                            catch(error) {
+                                errors.push('Dios get info: ' + error);
+                            }
+                        }
+                        done();
+                    }
+                }]);//inner Queue
+            });
+            done();
+        }
+    }]);
+    c.on('drain',function(){
+        if(errors.length > 0) {
+            callback(errors, null);
+        }
+        else {
+            callback(null, array);
+        }
+    });
+}
+
+module.exports.svedin_crawl = svedin_crawl;
+
+svedin_crawl()
+
